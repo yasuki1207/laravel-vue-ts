@@ -35,7 +35,11 @@ class HandleInertiaRequests extends Middleware
                 'user' => $request->user(),
             ],
             'ziggy' => function () use ($request) {
-                return array_merge((new Ziggy)->toArray(), [
+                $ziggyGroups = is_null($request->user()) ? ['guest'] : ['all'];
+                if (config('app.env') !== 'production') {
+                    array_push($ziggyGroups, 'ignition');
+                }
+                return array_merge((new Ziggy($ziggyGroups))->toArray(), [
                     'location' => $request->url(),
                 ]);
             },
