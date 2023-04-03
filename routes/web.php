@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Guest\Soccer\IndexController as SoccerIndexController;
+use App\Http\Controllers\Guest\TopController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +19,12 @@ use Inertia\Inertia;
 */
 
 Route::name('guest.')->group(function () {
-    Route::get('/', function () {
-        return Inertia::render('Guest/Welcome', [
-            'canLogin' => Route::has('guest.login'),
-            'canRegister' => Route::has('guest.register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
-        ]);
+    Route::get('/', TopController::class)->name('top');
+    // サッカー
+    Route::prefix('soccer')->name('soccer.')->group(function () {
+        Route::get('/', SoccerIndexController::class)->name('index');
     });
 });
-
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
