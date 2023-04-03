@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Guest\Soccer\IndexController as SoccerIndexController;
+use App\Http\Controllers\Guest\Soccer\StandingController as SoccerStandingController;
 use App\Http\Controllers\Guest\TopController;
 use App\Http\Controllers\ProfileController;
+use App\Models\SoccerLeague;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +25,7 @@ Route::name('guest.')->group(function () {
     // サッカー
     Route::prefix('soccer')->name('soccer.')->group(function () {
         Route::get('/', SoccerIndexController::class)->name('index');
+        Route::get('{prefix}/standing', SoccerStandingController::class)->name('standing');
     });
 });
 

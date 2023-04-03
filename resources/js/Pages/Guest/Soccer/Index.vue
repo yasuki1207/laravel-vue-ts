@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
-import { LeagueList } from '../../../Types/Guest/Soccer';
+import { League } from '../../../Types/Guest/Soccer';
 import { PropType } from 'vue';
 
 const props = defineProps({
-  leagues: Array as PropType<LeagueList[]>,
+  leagues: Array as PropType<League[]>,
 })
 </script>
 
@@ -21,10 +21,10 @@ const props = defineProps({
           v-for="league, index in props.leagues"
           :key="league.id"
           class="border-t hover:opacity-50"
-          :class="{'border-b': index + 1 === (props.leagues as LeagueList[]).length}"
+          :class="{'border-b': index + 1 === (props.leagues as League[]).length}"
         >
           <Link
-            :href="route('guest.soccer.index')"
+            :href="route('guest.soccer.standing', { prefix: league.prefix })"
             class="flex justify-between items-center px-3 py-2">
             <span>{{ league.name }}</span>
             <span class="text-blue-700 font-bold">＞</span>

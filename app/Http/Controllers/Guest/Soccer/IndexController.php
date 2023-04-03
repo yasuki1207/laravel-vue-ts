@@ -11,7 +11,7 @@ class IndexController extends Controller
     public function __invoke()
     {
         return Inertia::render('Guest/Soccer/Index', [
-            'leagues' => SoccerLeague::get(['id', 'name']),
+            'leagues' => SoccerLeague::get(['id', 'name', 'prefix']),
         ]);
     }
 }
