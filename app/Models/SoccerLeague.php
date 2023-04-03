@@ -12,6 +12,7 @@ class SoccerLeague extends Model
     protected $fillable = [
         'name',
         'summary',
+        'prefix',
     ];
 
     public function soccerTeams()

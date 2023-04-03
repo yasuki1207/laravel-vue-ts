@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255)->comment('リーグ名');
             $table->text('summary')->comment('リーグ概要');
+            $table->string('prefix', 50)->comment('prefix');
             $table->timestamps();
         });
     }
