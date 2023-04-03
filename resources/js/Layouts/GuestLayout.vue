@@ -27,8 +27,8 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('guest.top')" :active="route().current('guest.top')">
-                                    TOP
+                                <NavLink :href="route('guest.soccer.index')" :active="route().current('guest.soccer.*')">
+                                    サッカー
                                 </NavLink>
                             </div>
                         </div>
@@ -72,8 +72,8 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('guest.top')" :active="route().current('guest.top')">
-                            TOP
+                        <ResponsiveNavLink :href="route('guest.soccer.index')" :active="route().current('guest.soccer.*')">
+                            サッカー
                         </ResponsiveNavLink>
                     </div>
                 </div>
