@@ -1,5 +1,5 @@
 <script setup>
-import GuestLayout from '@/Layouts/GuestLayout.vue';
+import SimpleLayout from '@/Layouts/SimpleLayout.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
@@ -20,7 +20,7 @@ const submit = () => {
 </script>
 
 <template>
-    <GuestLayout>
+    <SimpleLayout>
         <Head title="Forgot Password" />
 
         <div class="mb-4 text-sm text-gray-600">
@@ -55,5 +55,5 @@ const submit = () => {
                 </PrimaryButton>
             </div>
         </form>
-    </GuestLayout>
+    </SimpleLayout>
 </template>
