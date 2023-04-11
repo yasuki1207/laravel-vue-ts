@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Guest\Soccer;
 
 use App\Http\Controllers\Controller;
 use App\Models\SoccerLeague;
-use Illuminate\Http\Request;
+use App\Services\Guest\BreadcrumbService;
 use Inertia\Inertia;
 
 class StandingController extends Controller
@@ -13,6 +13,7 @@ class StandingController extends Controller
     {
         return Inertia::render('Guest/Soccer/Standing', [
             'league' => SoccerLeague::where('prefix', $prefix)->first(),
+            'breadcrumbs' => BreadcrumbService::getBreadcrumbs(),
         ]);
     }
 }

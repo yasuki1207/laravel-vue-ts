@@ -81,6 +81,9 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Content -->
             <main>
+                <div class="m-2 p-3 bg-white rounded-sm" v-if="$slots.breadcrumbs">
+                    <slot name="breadcrumbs" />
+                </div>
                 <div class="m-2 p-3 bg-white rounded-sm">
                     <slot name="heading1" v-if="$slots.heading1" />
                     <slot />
